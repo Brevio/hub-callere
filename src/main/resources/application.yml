@@ -1,0 +1,54 @@
+server:
+  port: 8888
+spring:
+  application:
+    name: hub-callere
+  boot:
+      admin: 
+        client:
+          url: http://10.195.169.9:9010 
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://35.223.217.167:8761/eureka
+      #defaultZone: http://10.195.169.9:8761/eureka
+logging:
+  file: /containers/logs/dsocr/dsocr.log
+  level:
+    web: info
+management:
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+info:
+  app:
+    name: "@project.name@"
+    version: "@project.version@"
+    
+#END POINTS
+#PDF_UTILS
+url.pdf.utils.comp: http://pdf-utils/pdf-utils/v2/compile
+
+url.pdf.utils.extract: http://pdf-utils/pdf-utils/v2/extract
+
+url.pdf.utils.convert: http://pdf-utils/pdf-utils/v2/convert
+
+#DSOCR-API
+url.callere.ocr.dll: http://dsocr-api/dsocr-api/v2
+
+#IMAGE-PROCESS
+url.dsip: http://image-process/image-process/v2/memory
+url.dsip.file: http://image-process/image-process/v2/
+
+#PARAMS DSIP
+image.filters: 120
+binarize.mode: 0
+crop.mode: 5
+deskew.crop.order: 1
+deskew.mode: 2
